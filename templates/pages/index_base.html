@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+<!--<!DOCTYPE html>-->
 
 <html lang="en">
 
@@ -10,24 +11,24 @@
 	<title>Home — Multipurpose Gaming Template</title>
 
 	<!-- Fav Icon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/fav-icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/fav-icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/fav-icons/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/fav-icons/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/fav-icons/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/fav-icons/favicon-16x16.png' %}">
 	<meta name="theme-color" content="#3d0e03">
 
 	<!-- Dependency Styles -->
-	<link rel="stylesheet" href="dependencies/bootstrap/css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="dependencies/font-awesome/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/bootstrap/css/bootstrap.min.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/font-awesome/css/font-awesome.min.css' %}" type="text/css">
 
 	<!-- Site Stylesheet -->
-	<link rel="stylesheet" href="dependencies/swiper/swiper.min.css" type="text/css">
-	<link rel="stylesheet" href="dependencies/wow/css/animate.css" type="text/css">
-	<link rel="stylesheet" href="dependencies/magnific-popup/magnific-popup.css" type="text/css">
-	<link rel="stylesheet" href="dependencies/jquery-animated-headlines/css/jquery.animatedheadline.css" type="text/css">
-	<link rel="stylesheet" href="assets/css/woocommerce.css" type="text/css">
-	<link rel="stylesheet" href="dependencies/jquery-ui/css/jquery-ui.css" type="text/css">
-	<link rel="stylesheet" href="dependencies/slick-carousel/css/slick.css" type="text/css">
-	<link rel="stylesheet" href="assets/css/app.css" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/swiper/swiper.min.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/wow/css/animate.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/magnific-popup/magnific-popup.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/jquery-animated-headlines/css/jquery.animatedheadline.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'assets/css/woocommerce.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/jquery-ui/css/jquery-ui.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'dependencies/slick-carousel/css/slick.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'assets/css/app.css' %}" type="text/css">
 
 	<!-- Google Web Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -118,7 +119,7 @@
 					<div class="nav-wrap">
 						<div id="site-logo">
 							<a href="index.html">
-						<img src="assets/img/logo.png" alt="Site Logo">
+						<img src="{% static 'assets/img/logo.png' %}" alt="Site Logo">
 					</a>
 						</div>
 						<ul class="tim-nav text-right">
@@ -186,7 +187,7 @@
 													<div class="col-md-3">
 														<div class="top-team">
 															<a href="killer.html">
-														<img src="media/team/1.jpg" alt="team">
+														<img src="{% static 'media/team/1.jpg' %}" alt="team">
 													</a>
 															<h3 class="game-team-name">
 																<a href="team.html">Killer Whale</a>
@@ -197,7 +198,7 @@
 
 													<div class="col-md-3">
 														<div class="top-team">
-															<a href="#"><img src="media/team/2.jpg" alt="team"></a>
+															<a href="#"><img src="{% static 'media/team/2.jpg' %}" alt="team"></a>
 															<h3 class="game-team-name"><a href="#">Gems author</a></h3>
 														</div>
 														<!-- /.top-team -->
@@ -205,7 +206,7 @@
 
 													<div class="col-md-3">
 														<div class="top-team">
-															<a href="#"><img src="media/team/3.jpg" alt="team"></a>
+															<a href="#"><img src="{% static 'media/team/3.jpg' %}" alt="team"></a>
 															<h3 class="game-team-name"><a href="#">Hard Gamer</a></h3>
 														</div>
 														<!-- /.top-team -->
@@ -213,7 +214,7 @@
 
 													<div class="col-md-3">
 														<div class="top-team">
-															<a href="#"><img src="media/team/4.jpg" alt="team"></a>
+															<a href="#"><img src="{% static 'media/team/4.jpg' %}" alt="team"></a>
 															<h3 class="game-team-name"><a href="#">Speed Controller</a></h3>
 														</div>
 														<!-- /.top-team -->
@@ -229,7 +230,7 @@
 														<div class="trurnament-inner wow fadeIn">
 															<div class="torurmant clearfix">
 																<div class="tgame game-item">
-																	<img src="media/game/c1.jpg" alt="Game">
+																	<img src="{% static 'media/game/c1.jpg' %}" alt="Game">
 																	<h4>Game Whale</h4>
 																</div>
 
@@ -238,7 +239,7 @@
 																</div>
 
 																<div class="tgame game-item">
-																	<img src="media/game/c2.jpg" alt="Game">
+																	<img src="{% static 'media/game/c2.jpg' %}" alt="Game">
 																	<h4>Game Thriller</h4>
 																</div>
 															</div>
@@ -292,7 +293,7 @@
 														<div class="trurnament-inner wow fadeIn">
 															<div class="torurmant clearfix">
 																<div class="tgame game-item">
-																	<img src="media/game/c1.jpg" alt="Game">
+																	<img src="{% static 'media/game/c1.jpg' %}" alt="Game">
 																	<h4>Game whale</h4>
 																</div>
 
@@ -301,7 +302,7 @@
 																</div>
 
 																<div class="tgame game-item">
-																	<img src="media/game/c2.jpg" alt="Game">
+																	<img src="{% static 'media/game/c2.jpg' %}" alt="Game">
 																	<h4>Game Thriller</h4>
 																</div>
 															</div>
@@ -362,7 +363,7 @@
 													<a href="#" class="link-btn">Strategy <i class="fa fa-angle-right"></i></a>
 
 													<div class="torurmant-game">
-														<img src="media/torurmant/2.jpg" alt="Torurmant">
+														<img src="{% static 'media/torurmant/2.jpg' %}" alt="Torurmant">
 														<h3>Game Adict</h3>
 													</div>
 													<div class="torurmant-game text-center">
@@ -373,7 +374,7 @@
 													</div>
 
 													<div class="torurmant-game">
-														<img src="media/torurmant/3.jpg" alt="Torurmant">
+														<img src="{% static 'media/torurmant/3.jpg' %}" alt="Torurmant">
 														<h3>Clan Warrior</h3>
 													</div>
 
@@ -391,10 +392,10 @@
 														<div class="top-user-details clearfix">
 															<div class="top-user-status clearfix">
 																<div class="left-side clearfix">
-																	<img class="user-pic" src="media/game/44.jpg" alt="user">
+																	<img class="user-pic" src="{% static 'media/game/44.jpg' %}" alt="user">
 																	<div class="content">
 																		<h3 class="name">ASHarwood</h3>
-																		<p>Jhone Smith <img src="media/game/us.gif" alt="flug"> California, United State</p>
+																		<p>Jhone Smith <img src="{% static 'media/game/us.gif' %}" alt="flug"> California, United State</p>
 
 
 																	</div>
@@ -405,9 +406,9 @@
 																		<h4>Level 13</h4>
 																		<div class="game-badges">
 																			<h5>Badges 7</h5>
-																			<img src="media/game/6.png" alt="batch">
-																			<img src="media/game/7.png" alt="batch">
-																			<img src="media/game/8.png" alt="batch">
+																			<img src="{% static 'media/game/6.png' %}" alt="batch">
+																			<img src="{% static 'media/game/7.png' %}" alt="batch">
+																			<img src="{% static 'media/game/8.png' %}" alt="batch">
 																		</div>
 																	</div>
 																</div>
@@ -420,10 +421,10 @@
 														<div class="top-user-details clearfix">
 															<div class="top-user-status clearfix">
 																<div class="left-side clearfix">
-																	<img class="user-pic" src="media/game/44.jpg" alt="user">
+																	<img class="user-pic" src="{% static 'media/game/44.jpg' %}" alt="user">
 																	<div class="content">
 																		<h3 class="name">ASHarwood</h3>
-																		<p>Jhone Smith <img src="media/game/us.gif" alt="flug"> California, United State</p>
+																		<p>Jhone Smith <img src="{% static 'media/game/us.gif' %}" alt="flug"> California, United State</p>
 																	</div>
 																</div>
 
@@ -432,9 +433,9 @@
 																		<h4>Level 13</h4>
 																		<div class="game-badges">
 																			<h5>Badges 7</h5>
-																			<img src="media/game/6.png" alt="batch">
-																			<img src="media/game/7.png" alt="batch">
-																			<img src="media/game/8.png" alt="batch">
+																			<img src="{% static 'media/game/6.png' %}" alt="batch">
+																			<img src="{% static 'media/game/7.png' %}" alt="batch">
+																			<img src="{% static 'media/game/8.png' %}" alt="batch">
 																		</div>
 																	</div>
 																</div>
@@ -447,7 +448,7 @@
 												<div class="nav-top-author-inner">
 													<div class="authot-wrap">
 														<div class="top-author">
-															<img src="media/game/44.jpg" alt="author">
+															<img src="{% static 'media/game/44.jpg' %}" alt="author">
 															<h3 class="game-author-name"><a href="#">Dead Zone</a></h3>
 															<p class="author-post-count">Threads: <span>371,481 •</span> </p>
 														</div>
@@ -456,7 +457,7 @@
 
 													<div class="authot-wrap">
 														<div class="top-author">
-															<img src="media/game/45.jpg" alt="author">
+															<img src="{% static 'media/game/45.jpg' %}" alt="author">
 															<h3 class="game-author-name"><a href="#">Dead Zone</a></h3>
 															<p class="author-post-count">Threads: <span>371,481 •</span> </p>
 														</div>
@@ -465,7 +466,7 @@
 
 													<div class="authot-wrap">
 														<div class="top-author">
-															<img src="media/game/46.jpg" alt="author">
+															<img src="{% static 'media/game/46.jpg' %}" alt="author">
 															<h3 class="game-author-name"><a href="#">Dead Zone</a></h3>
 															<p class="author-post-count">Threads: <span>371,481 •</span> </p>
 														</div>
@@ -474,7 +475,7 @@
 
 													<div class="authot-wrap">
 														<div class="top-author">
-															<img src="media/game/47.jpg" alt="author">
+															<img src="{% static 'media/game/47.jpg' %}" alt="author">
 															<h3 class="game-author-name"><a href="#">Dead Zone</a></h3>
 															<p class="author-post-count">Threads: <span>371,481 •</span> </p>
 														</div>
@@ -553,7 +554,7 @@
 		<header id="mobile-nav-wrap">
 			<div class="mob-header-inner d-flex justify-content-between">
 				<div id="mobile-logo" class="d-flex justify-content-start">
-					<a href="#"><img src="assets/img/logo.png" alt="Site Logo"></a>
+					<a href="#"><img src="{% static 'assets/img/logo.png' %}" alt="Site Logo"></a>
 				</div>
 
 				<ul class="user-link nav justify-content-end">
@@ -657,16 +658,174 @@
 		</div>
 		<!-- /.mobile-menu-inner -->
 
-<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
-<br>
-<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
-<br>
-<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
-<br>
-<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
-<br>
-<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
-<br>
+
+
+		<!--=========================-->
+		<!--=        Banner         =-->
+		<!--=========================-->
+		<section id="banner">
+			<div class="swiper-container banner-slider" data-swiper-config='{"loop": true, "effect": "slide", "prevButton":"#banner-nav-prev", "nextButton": "#banner-nav-next", "speed": 800, "autoplay": 5000, "grabCursor": true, "paginationClickable": true}'>
+
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" data-bg-image="{% static 'media/banner/2.jpg' %}">
+						<div class="slider-content-two" data-animate="fadeIn">
+
+							<h2 data-animate="fadeInUp"><span>Action</span> Game :</h2>
+							<h2 data-animate="fadeInUp" data-delay="0.5s">REALISTIC BATTLES</h2>
+
+							<a href="#" class="popup-btn" data-animate="fadeInRight" data-delay="0.9s">
+						<i class="fa fa-play"></i>
+						Watch Trailer
+					</a>
+						</div>
+						<!-- /.slider-content -->
+
+					</div>
+					<div class="swiper-slide" data-bg-image="{% static 'media/banner/1.jpg' %}">
+						<div class="slider-content" data-animate="fadeIn">
+							<h2 data-animate="zoomIn"><span>Extreme</span> Warrior</h2>
+							<h2 data-animate="fadeInUp" data-delay="0.5s">Mission Impossible</h2>
+
+							<a href="#" class="popup-btn" data-animate="fadeInRight" data-delay="0.9s">
+						<i class="fa fa-play"></i>
+						Watch Trailer
+					</a>
+						</div>
+						<!-- /.slider-content -->
+					</div>
+				</div>
+
+
+
+				<!-- Swiper Nav Prev -->
+				<div id="banner-nav-prev" class="fire-nav-prev">
+					<i class="fa fa-angle-left"></i>
+				</div>
+				<!-- Swiper Nav Next -->
+				<div id="banner-nav-next" class="fire-nav-next">
+					<i class="fa fa-angle-right"></i>
+				</div>
+			</div>
+		</section>
+		<!-- /#banner -->
+
+		<!--==============++=======-->
+		<!--=        Behind        =-->
+		<!--================++=====-->
+		<section class="section-padding" id="behind" data-parallax="image" data-bg-image="{% static 'media/blog/57.jpg' %}">
+			<div class="container">
+				<div class="section-title">
+					<h3 class="sub-title wow fadeInUp" data-wow-duration="1000ms">Home Work</h3>
+					<h2 class="title wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.2s">Behind The <span>Game</span></h2>
+					<span class="delemitter wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s" data-bg-image="{% static 'media/banner/s1.png' %}"></span>
+
+					<div class="section-content wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.4s">
+						<p>
+							There is in the land of Mnar a vast still lake that is fed by no stream and out of which no stream flows. Ten thousand<br> years ago there stood by its shore the mighty city of Sarnath, but Sarnath stands there no more.
+						</p>
+					</div>
+				</div>
+				<div class="behind-items wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.7s">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__one skew__left">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/1.png" alt="icon"> -->
+											<i class="flaticon-gamepad"></i>
+										</div>
+
+										<h3 class="title">Incredible Atmosphere</h3>
+
+										<p class="content">
+											Second Made make spirit green divide lesser creeping void and night replenish cattle don't was female first their day open.night replenish cattle don't was female first their day open.
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__two skew__left">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/2.png" alt="icon"> -->
+											<i class="flaticon-fire"></i>
+										</div>
+
+										<h3 class="title">Catchy Battles</h3>
+
+										<p class="content">
+											Second Made make spirit green divide lesser creeping void and night replenish cattle don't was female first their day open.night replenish cattle don't was female first their day open.
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__two skew__right">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/3.png" alt="icon"> -->
+											<i class="flaticon-trophy"></i>
+										</div>
+
+										<h3 class="title">28 Awards</h3>
+
+										<p class="content">
+											Second Made make spirit green divide lesser creeping void and night replenish cattle don't was female first their day open.night replenish cattle don't was female first their day open.
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__one skew__right">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/4.png" alt="icon"> -->
+											<i class="flaticon-man-with-bag-and-walking-stick"></i>
+										</div>
+
+										<h3 class="title">Unlimited Possibilities</h3>
+
+										<p class="content">
+											Second Made make spirit green divide lesser creeping void and night replenish cattle don't was female first their day open.night replenish cattle don't was female first their day open.
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.behind-items -->
+			</div>
+			<!-- /.container -->
+		</section>
+		<!-- /#behind -->
 
 		<!--===============================-->
 		<!--=        Modal        =-->
@@ -1085,23 +1244,23 @@
 	<!-- /#site -->
 
 	<!-- Dependency Scripts -->
-	<script src="dependencies/popper.js/popper.min.js"></script>
-	<script src="dependencies/jquery/jquery.min.js"></script>
-	<script src="dependencies/bootstrap/js/bootstrap.min.js"></script>
-	<script src="dependencies/swiper/js/swiper.min.js"></script>
-	<script src="dependencies/swiperRunner/swiperRunner.min.js"></script>
-	<script src="dependencies/slick-carousel/js/slick.min.js"></script>
-	<script src="dependencies/magnific-popup/js/jquery.magnific-popup.min.js"></script>
-	<script src="dependencies/jquery-ui/jquery-ui.min.js"></script>
-	<script src="dependencies/jquery-animated-headlines/js/jquery.animatedheadline.min.js"></script>
-	<script src="dependencies/jquery.countdown/jquery.countdown.min.js"></script>
-	<script src="dependencies/countUp.js/js/countUp.min.js"></script>
-	<script src="dependencies/jquery.appear.bas2k/jquery.appear.js"></script>
-	<script src="dependencies/jquery.ripples/jquery.ripples.js"></script>
-	<script src="dependencies/wow/js/wow.min.js"></script>
+	<script src="{% static 'dependencies/popper.js/popper.min.js' %}"></script>
+	<script src="{% static 'dependencies/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'dependencies/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'dependencies/swiper/js/swiper.min.js' %}"></script>
+	<script src="{% static 'dependencies/swiperRunner/swiperRunner.min.js' %}"></script>
+	<script src="{% static 'dependencies/slick-carousel/js/slick.min.js' %}"></script>
+	<script src="{% static 'dependencies/magnific-popup/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'dependencies/jquery-ui/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'dependencies/jquery-animated-headlines/js/jquery.animatedheadline.min.js' %}"></script>
+	<script src="{% static 'dependencies/jquery.countdown/jquery.countdown.min.js' %}"></script>
+	<script src="{% static 'dependencies/countUp.js/js/countUp.min.js' %}"></script>
+	<script src="{% static 'dependencies/jquery.appear.bas2k/jquery.appear.js' %}"></script>
+	<script src="{% static 'dependencies/jquery.ripples/jquery.ripples.js' %}"></script>
+	<script src="{% static 'dependencies/wow/js/wow.min.js' %}"></script>
 
 	<!-- Site Scripts -->
-	<script src="assets/js/app.js"></script>
+	<script src="{% static 'assets/js/app.js' %}"></script>
 
 </body>
 

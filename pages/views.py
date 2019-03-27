@@ -7,3 +7,9 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView):
     template_name = 'pages/about.html'
+	
+class IndexPageView(TemplateView):
+    # def as_view():
+
+    template_name = 'pages/index_base.html'
+
