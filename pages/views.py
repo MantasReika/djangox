@@ -11,5 +11,5 @@ class AboutPageView(TemplateView):
 class IndexPageView(TemplateView):
     # def as_view():
 
-    template_name = 'pages/index_base.html'
+    template_name = 'pages/index.html'
 
