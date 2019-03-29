@@ -13,3 +13,7 @@ class IndexPageView(TemplateView):
 
     template_name = 'pages/index.html'
 
+class LoginPageView(TemplateView):
+    # def as_view():
+
+    template_name = '__base.html'
