@@ -4,6 +4,77 @@
 {% block title %}Index Page{% endblock %}
 
 {% block content %}
+		<h1>{{ message }}</h1>
+		<!--===========================-->
+		<!--=        Torurmant        =-->
+		<!--===========================-->
+		<section id="tournaments">
+			<div class="container">
+
+				<div class="swiper-container tim-logo-carousel" data-swiper-config='{"loop": true, "speed": 700, "spaceBetween": 30, "autoplay": 3000, "pagination":"#brand-swiper-pagination", "slidesPerView": 3, "grabCursor": true, "paginationClickable": true, "breakpoints": { "991": { "slidesPerView": 2 }, "767": { "slidesPerView": 1 }}}'>
+					<div class="swiper-wrapper">
+						{% for tournament in tournaments_list %}
+						<div class="swiper-slide">
+							<div class="trurnament-inner wow fadeInRight" data-wow-duration="1000ms">
+								<div class="torurmant clearfix">
+									<div class="tgame game-item">
+										<img src="media/game/c1.jpg" alt="Game">
+										<h4><a href="#">{{ tournament.trName }}</a></h4>
+									</div>
+								</div>
+
+								<div class="tournaments-details clearfix">
+									<div class="tournamant-date">
+										<div class="date">
+											<h4>December<br> 10</h4>
+										</div>
+
+										<div class="date">
+											<h4>Days<br> 20</h4>
+										</div>
+
+										<div class="date">
+											<h4>Hour<br> {{ tournament.trTime }}</h4>
+										</div>
+									</div>
+
+									<div class="view-details clearfix">
+										<div class="details">
+											<ul class="review">
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</ul>
+
+											<a href="#" class="tim-btn">View Details</a>
+										</div>
+
+										<div class="details float-right">
+											<ul class="review">
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</ul>
+
+											<a class="meta" href="#"><i class="fa fa-comments"></i> Comments</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor%}
+					</div>
+				</div>
+			</div>
+			<!-- /.container -->
+		</section>
+		<!-- /#tournaments -->
+
+
 		<!--==============++=======-->
 		<!--=        Behind        =-->
 		<!--================++=====-->

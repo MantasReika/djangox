@@ -8704,7 +8704,7 @@ img {
   ##  Tournaments
   --------------------------------------------------------------*/
 #tournaments {
-  padding: 100px 0;
+  padding: 50px 0 0 0;
   background: #13131f;
 }
 
@@ -8724,7 +8724,7 @@ img {
 .trurnament-inner .torurmant .game-item {
   display: inline-block;
   width: 33.33%;
-  float: left;
+  float: center;
 }
 
 .trurnament-inner .torurmant .game-item img {
