@@ -1,5 +1,7 @@
 from django.views.generic import TemplateView
 
+from pages.faceit.faceitApi import faceitApi
+import json
 
 class HomePageView(TemplateView):
     template_name = 'pages/index.html'
@@ -10,19 +12,11 @@ class HomePageView(TemplateView):
         return context
 
     def getTournaments(self):
+        organizerId = 'ca401c56-55fe-40d9-a89e-ac3db2d1395b'  # organizerData['organizer_id']
 
-        tournaments = [
-            {'trName' : 'test tournament1',
-             'trTime' : '10:00:00'
-             },
-            {'trName': 'test tournament2',
-             'trTime': '12:00:00'
-             },
-            {'trName': 'test tournament3',
-             'trTime': '13:00:00'
-             }
-        ]
-        return tournaments
+        api = faceitApi()
+        tournaments = api.getOrganizerHubs(organizerId)
+        return tournaments.json()['items']
 
 
 class AboutPageView(TemplateView):

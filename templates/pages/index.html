@@ -1,6 +1,6 @@
 {% extends 'index_base.html' %}
 {% load staticfiles %}
-
+{% load specifyLangEn %}
 {% block title %}Index Page{% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
 								<div class="torurmant clearfix">
 									<div class="tgame game-item">
 										<img src="media/game/c1.jpg" alt="Game">
-										<h4><a href="#">{{ tournament.trName }}</a></h4>
+										<h4><a href="#">{{ tournament.name }}</a></h4>
 									</div>
 								</div>
 
@@ -34,7 +34,7 @@
 										</div>
 
 										<div class="date">
-											<h4>Hour<br> {{ tournament.trTime }}</h4>
+											<h4>Hour<br> 7</h4>
 										</div>
 									</div>
 
@@ -48,7 +48,7 @@
 												<li><i class="fa fa-star-o"></i></li>
 											</ul>
 
-											<a href="#" class="tim-btn">View Details</a>
+											<a href="{{ tournament.faceit_url|specifyLangEn}}" class="tim-btn"> See more </a>
 										</div>
 
 										<div class="details float-right">
