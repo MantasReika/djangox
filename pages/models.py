@@ -9,12 +9,13 @@ class Hub(models.Model):
     FINISHED = 'FINISHED'
     HUB_STA_CHOICES = (
         (UPCOMING, 'Upcoming'),
-        (STARTED, 'STARTED'),
-        (FINISHED, 'FINISHED')
+        (STARTED, 'Started'),
+        (FINISHED, 'Finished')
     )
 
     status = models.CharField(max_length=128,
-                              choices=HUB_STA_CHOICES)
+                              choices=HUB_STA_CHOICES,
+                              default=UPCOMING)
     hub_name = models.CharField(max_length=128,
                                 blank = True,
                                 null=True)
