@@ -21,7 +21,7 @@ class FaceitApi:
         self.verifyResponse()
         self.saveResponse()
 
-    def collectData(self):
+    def collectHubsData(self):
         raise Exception("Method must be implemented in child class")
 
     def saveResponse(self):
@@ -79,6 +79,12 @@ class FaceitApi:
 
     def getOrganizerHubs(self, organizerId):
         self.apiResource = '/organizers/{0}/hubs'.format(organizerId)
+        self.apiUrl = self.makeUrl(self.apiUrlBase, self.apiResource)
+        self.params = {}
+        return self.callApi()
+
+    def getHub(self, hubId):
+        self.apiResource = '/hubs/{0}'.format(hubId)
         self.apiUrl = self.makeUrl(self.apiUrlBase, self.apiResource)
         self.params = {}
         return self.callApi()

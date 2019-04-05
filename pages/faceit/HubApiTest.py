@@ -6,5 +6,9 @@ def printJson(data):
 
 
 hub = HubApi()
-hub.collectData()
-print(hub.hubItems)
+hub.collectHubsData()
+for i in hub.hubItems:
+    print(i)
+    printJson(i.__dict__)
+
+# print(hub.hubItems)

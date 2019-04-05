@@ -13,13 +13,14 @@
 
 				<div class="swiper-container tim-logo-carousel" data-swiper-config='{"loop": true, "speed": 700, "spaceBetween": 30, "autoplay": 3000, "pagination":"#brand-swiper-pagination", "slidesPerView": 3, "grabCursor": true, "paginationClickable": true, "breakpoints": { "991": { "slidesPerView": 2 }, "767": { "slidesPerView": 1 }}}'>
 					<div class="swiper-wrapper">
-						{% for tournament in tournaments_list %}
+						{% for hub in hubs_list %}
 						<div class="swiper-slide">
 							<div class="trurnament-inner wow fadeInRight" data-wow-duration="1000ms">
 								<div class="torurmant clearfix">
 									<div class="tgame game-item">
 										<img src="media/game/c1.jpg" alt="Game">
-										<h4><a href="#">{{ tournament.name }}</a></h4>
+										<h4><a href="#">{{ hub.name }}</a></h4>
+                                        <h4><a href="#">{{ hub.id }}</a></h4>
 									</div>
 								</div>
 

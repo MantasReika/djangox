@@ -13,16 +13,24 @@ class Hub(models.Model):
         (FINISHED, 'Finished')
     )
 
+    faceit_hub_id = models.CharField(max_length=128,
+                                blank = True,
+                                null=True)
+    game_id = models.CharField(max_length=128,
+                                blank = True,
+                                null=True)
+    name = models.CharField(max_length=128,
+                            blank = True,
+                            null=True)
     status = models.CharField(max_length=128,
                               choices=HUB_STA_CHOICES,
                               default=UPCOMING)
-    hub_name = models.CharField(max_length=128,
-                                blank = True,
-                                null=True)
-    hub_start_dttm = models.DateTimeField(blank = True,
-                                          null=True)
-    hub_finish_dttm = models.DateTimeField(blank = True,
-                                           null=True)
+    start_dttm = models.DateTimeField(blank = True,
+                                      null=True)
+    finish_dttm = models.DateTimeField(blank = True,
+                                       null=True)
+    created_dttm = models.DateTimeField(auto_now_add=True)
+    modified_dttm = models.DateTimeField(auto_now=True)
 
 class HubScore(models.Model):
     hub = models.ForeignKey(Hub, on_delete=models.CASCADE)
@@ -31,6 +39,8 @@ class HubScore(models.Model):
                                 null=True)
     points = models.IntegerField(blank = True,
                                  null=True)
+    created_dttm = models.DateTimeField(auto_now_add=True)
+    modified_dttm = models.DateTimeField(auto_now=True)
 
 class Player(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
@@ -40,6 +50,8 @@ class Player(models.Model):
     eth_wallet_address = models.CharField(max_length=512,
                                           blank = True,
                                           null=True)
+    created_dttm = models.DateTimeField(auto_now_add=True)
+    modified_dttm = models.DateTimeField(auto_now=True)
 
 
 class Invites(models.Model):
@@ -52,3 +64,5 @@ class Invites(models.Model):
     transaction_hash = models.CharField(max_length=512,
                                         blank = True,
                                         null=True)
+    created_dttm = models.DateTimeField(auto_now_add=True)
+    modified_dttm = models.DateTimeField(auto_now=True)

@@ -1,41 +1,77 @@
+import logging
+
 from django.views.generic import TemplateView
-
-from pages.faceit.FaceitApi import FaceitApi
-
+from pages.faceit.HubApi import HubApi
 from .models import Hub, HubScore, Player, Invites
+
+from datetime import datetime, timedelta
 import json
 
-class HomePageView(TemplateView):
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='applog.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+class IndexPageView(TemplateView):
     template_name = 'pages/index.html'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        # context['tournaments_list'] = self.getTournaments()
-        context['tournaments_list'] = self.updateTournaments()
+        context['hubs_list'] = self.getHubsData()
+        # context['hubs_list'] = self.updateHubsData()
         return context
 
-    def getTournaments(self):
-        try:
-            tournaments = Hub.objects.get(sta=Hub.UPCOMING)
-        except:
-            return []
-        return tournaments
+    def getHubsData(self):
+        self.updateHubsData()
 
-    def updateTournaments(self):
-        organizerId = 'ca401c56-55fe-40d9-a89e-ac3db2d1395b'  # organizerData['organizer_id']
+        hubs = Hub.objects.all().filter(status=Hub.UPCOMING)
+        return hubs
+        # try:
+        #     competitions = Hub.objects.get(sta=Hub.UPCOMING)
+        # except:
+        #     return []
+        # return competitions
 
-        api = faceitApi()
-        apiTournaments = api.getOrganizerHubs(organizerId)
-        return apiTournaments.json()['items']
+    def updateHubsData(self):
+        timeThreshold = datetime.now() - timedelta(minutes=1)
+        """ Update hub data if the one we have is older than x minutes """
+        hubs = Hub.objects.all()
+        logger.debug('Got hubs from db, len: {}'.format(len(hubs)))
+        if len(hubs.filter(modified_dttm__lt=timeThreshold)) > 0 or len(hubs.filter(status=Hub.UPCOMING)) == 0:
+            hubApiObj = HubApi()
+            hubApiObj.collectHubsData()
+            logger.debug('Got hubs from API')
+            for hubNewer in hubApiObj.hubItems:
+                # for hub in hubs.objects.filter():
+                #     if hubNewer.id == hub.faceit_hub_id:
+                logger.debug('Processing for {}'.format(hubNewer.id))
+                try:
+                    HubUpdated = Hub.objects.get(faceit_hub_id=hubNewer.id)
+                    HubUpdated.faceit_hub_id    = hubNewer.id,
+                    HubUpdated.game_id          = hubNewer.game_id,
+                    HubUpdated.name             = hubNewer.name,
+                    # HubUpdated.status           = hubNewer.status,
+                    # HubUpdated.start_dttm       = hubNewer.start_dttm,
+                    # HubUpdated.finish_dttm      = hubNewer.finish_dttm
+                    logger.debug('Updated hub{}'.format(hubNewer.id))
+
+                except Hub.DoesNotExist:
+                    HubUpdated = Hub(
+                        faceit_hub_id   = hubNewer.id,
+                        game_id         = hubNewer.game_id,
+                        name            = hubNewer.name,
+                        # status          = hubNewer.status,
+                        # start_dttm      = hubNewer.start_dttm,
+                        # finish_dttm     = hubNewer.finish_dttm
+                        )
+                    logger.debug('Created hub {}'.format(hubNewer.id))
+
+                HubUpdated.save()
+        return
 
 class AboutPageView(TemplateView):
     template_name = 'pages/about.html'
 	
-class IndexPageView(TemplateView):
-    # def as_view():
-
-    template_name = 'pages/index.html'
-
 class LoginPageView(TemplateView):
     # def as_view():
 
