@@ -47,14 +47,13 @@ class IndexPageView(TemplateView):
                 logger.debug('Processing for {}'.format(hubNewer.id))
                 try:
                     HubUpdated = Hub.objects.get(faceit_hub_id=hubNewer.id)
-                    HubUpdated.faceit_hub_id    = hubNewer.id,
-                    HubUpdated.game_id          = hubNewer.game_id,
-                    HubUpdated.name             = hubNewer.name,
-                    # HubUpdated.status           = hubNewer.status,
-                    # HubUpdated.start_dttm       = hubNewer.start_dttm,
+                    HubUpdated.game_id          = hubNewer.game_id
+                    HubUpdated.name             = hubNewer.name
+                    # HubUpdated.status           = hubNewer.status
+                    # HubUpdated.start_dttm       = hubNewer.start_dttm
                     # HubUpdated.finish_dttm      = hubNewer.finish_dttm
-                    logger.debug('Updated hub{}'.format(hubNewer.id))
-
+                    logger.debug('Updated hub {}'.format(hubNewer.id))
+                    logger.debug(hubNewer.__dict__  )
                 except Hub.DoesNotExist:
                     HubUpdated = Hub(
                         faceit_hub_id   = hubNewer.id,

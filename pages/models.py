@@ -13,6 +13,13 @@ class Hub(models.Model):
         (FINISHED, 'Finished')
     )
 
+    class Meta:
+        indexes = [models.Index(fields=['faceit_hub_id'])]
+        ordering = ['id']
+
+    def __str__(self):
+        return "{0} - {1}".format(self.game_id, self.name)
+
     faceit_hub_id = models.CharField(max_length=128,
                                 blank = True,
                                 null=True)
