@@ -2,7 +2,12 @@
 import logging
 from pages.faceit.FaceitApi import FaceitApi
 from pages.utils.errlog import VerifyException
-# from pages.models import Hub, HubScore, Player, Invites
+from pages.models import Hub, HubScore, Player, Invites
+from datetime import datetime
+import json
+
+def printJson(data):
+    return(json.dumps(data, indent=2, sort_keys=True))
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename='applog.log',
@@ -11,13 +16,6 @@ logging.basicConfig(filename='applog.log',
 
 
 class HubData:
-    id = ''
-    name = ''
-    game_id = ''
-    status = ''
-    start_dttm = ''
-    finish_dttm = ''
-
     def __init__(self, id='', game_id='', status='', name='', start_dttm='', finish_dttm=''):
         self.id = id
         self.game_id = game_id
@@ -27,18 +25,30 @@ class HubData:
         self.finish_dttm = finish_dttm
 
     def __str__(self):
-        return "hub_id={0}, status={1}, hub_name={2}, hub_start_dttm={3}, hub_finish_dttm={4}".format(self.id,
+        return "hub_id={}, game_id={}, hub_name={}, status={}, hub_start_dttm={}, hub_finish_dttm={}".format(self.id,
                                                                                                       self.game_id,
                                                                                                       self.name,
                                                                                                       self.status,
                                                                                                       self.start_dttm,
                                                                                                       self.finish_dttm)
+    def getId(self):
+        return self.id
+    def getGameId(self):
+        return self.game_id
+    def getName(self):
+        return self.name
+    def getStatus(self):
+        return self.status
+    def getStartDttm(self):
+        return datetime.utcfromtimestamp(int(self.start_dttm))
+    def getFinishDttm(self):
+        return datetime.utcfromtimestamp(int(self.finish_dttm))
 
 class HubApi(FaceitApi):
-    hubItems = []
 
     def __init__(self):
         super().__init__()
+        self.hubItems = []
 
     def collectHubsData(self):
         organizerId = 'ca401c56-55fe-40d9-a89e-ac3db2d1395b'
@@ -49,6 +59,7 @@ class HubApi(FaceitApi):
             respHubs = self.getOrganizerHubs(organizerId).json()['items']
             for respHubItem in respHubs:
                 respSeason = self.getHubSeason(respHubItem['hub_id'], 1).json()
+
                 HubDataObj = HubData(id=respHubItem['hub_id'])
                 HubDataObj.game_id = respSeason['leaderboard']['game_id']
                 HubDataObj.name = respHubItem['name']

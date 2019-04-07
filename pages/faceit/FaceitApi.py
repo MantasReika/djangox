@@ -16,11 +16,6 @@ class FaceitApi:
     def __str__(self):
         return str(self.__class__) + ": " + str(self.__dict__)
 
-    def process(self):
-        self.makeRequest()
-        self.verifyResponse()
-        self.saveResponse()
-
     def collectHubsData(self):
         raise Exception("Method must be implemented in child class")
 

@@ -5,11 +5,11 @@ from django.contrib.auth import get_user_model
 
 class Hub(models.Model):
     UPCOMING = 'UPCOMING'
-    STARTED = 'STARTED'
+    ONGOING = 'ONGOING'
     FINISHED = 'FINISHED'
     HUB_STA_CHOICES = (
         (UPCOMING, 'Upcoming'),
-        (STARTED, 'Started'),
+        (ONGOING, 'Ongoing'),
         (FINISHED, 'Finished')
     )
 
