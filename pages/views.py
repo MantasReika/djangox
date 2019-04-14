@@ -19,7 +19,7 @@ class IndexPageView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['hubs_list'] = self.getHubsData(Hub.FINISHED)
+        context['hubs_list'] = self.getHubsData(Hub.UPCOMING)
         # context['hubs_list'] = self.updateHubsData()
         return context
 
@@ -30,11 +30,14 @@ class IndexPageView(TemplateView):
         return hubs
 
     def updateHubsData(self, hubStatus):
-        timeThreshold = datetime.utcnow() - timedelta(seconds=10)
+        timeThreshold = datetime.utcnow() - timedelta(seconds=60)
         logger.debug("timeThreshold {}".format(timeThreshold))
         """ Update hub data if the one we have is older than x minutes """
         hubs = Hub.objects.all()
-        if len(hubs.filter(modified_dttm__lt=timeThreshold)) > 0 or len(hubs.filter(status=Hub.UPCOMING)) == 0:
+        logger.debug("Updating from, len(hubs.filter(modified_dttm__lt=timeThreshold)) = {}".format(len(hubs.filter(modified_dttm__lt=timeThreshold))))
+        logger.debug("Updating from API len(hubs.filter(status=hubStatus = {}))".format(len(hubs.filter(status=hubStatus))))
+        if len(hubs.filter(modified_dttm__lt=timeThreshold)) > 0 or len(hubs.filter(status=hubStatus)) == 0:
+            logger.debug("Updating from API".format())
             hubApiObj = HubApi()
             hubApiObj.collectHubsData()
 

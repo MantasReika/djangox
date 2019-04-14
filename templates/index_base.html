@@ -90,20 +90,41 @@
 							<!-- /.col-md-6 -->
 
 							<div class="col-md-4">
-								<ul class="user-link nav justify-content-end">
-									<li>
-										<a href="#" data-toggle="modal" data-target="#signInModal">
-									<i class="fa fa-user"></i>
-									Login
-								</a>
+								{% if user.is_authenticated %}
+
+								  <ul class="navbar-nav ml-auto">
+									<li class="nav-item">
+									  <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										{{ user.email }}
+									  </a>
+									  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+										<a class="dropdown-item" href="{% url 'account_change_password' %}">Change password</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="{% url 'account_logout' %}">Log out</a>
+									  </div>
 									</li>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#signUpModal">
-									<i class="fa fa-sign-in"></i>
-									Sign Up
-								</a>
-									</li>
-								</ul>
+								  </ul>
+
+
+								{% else %}
+								  <form class="ml-auto">
+
+									<ul class="user-link nav justify-content-end">
+										<li>
+											<a href="{% url 'account_login' %}">
+												<i class="fa fa-user"></i>
+												Login
+											</a>
+										</li>
+										<li>
+											<a href="{% url 'account_signup' %}">
+												<i class="fa fa-sign-in"></i>
+												Sign Up
+											</a>
+										</li>
+									</ul>
+								  </form>
+								{% endif %}
 								<!-- /.user-link -->
 							</div>
 							<!-- /.col-md-6 -->
@@ -712,6 +733,258 @@
 		{% block content %}
       <p>Default content...</p>
 		{% endblock content %}
+
+		<!--===============================-->
+		<!--=        Modal        =-->
+		<!--===============================-->
+		<!-- Sign in -->
+		<div class="modal fade" id="signInModal">
+			<div class="modal-dialog">
+				<div class="modal-body">
+					<ul class="nav">
+						<li class="active">
+							<i class="fa fa-user"></i>
+							<a data-toggle="tab" href="#login">Login</a>
+						</li>
+						<li>
+							<i class="fa fa-sign-in"></i>
+							<a data-toggle="tab" href="#signup">SignUp</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="login" class="tab-pane fade in active">
+<!--							<div class="login-left">-->
+<!--								<div class="login-title">-->
+<!--									<h3>Sign in socially</h3>-->
+<!--								</div>-->
+<!--								<div class="login-social">-->
+<!--									<ul>-->
+<!--										<li class="facebook">-->
+<!--											<a href="">-->
+<!--									<i class="fa fa-facebook"></i>-->
+<!--									<span>Facebook</span>-->
+<!--								</a>-->
+<!--										</li>-->
+<!--										<li class="twitter">-->
+<!--											<a href="">-->
+<!--									<i class="fa fa-twitter"></i>-->
+<!--									<span>Twitter</span>-->
+<!--								</a>-->
+<!--										</li>-->
+<!--										<li class="pinterest">-->
+<!--											<a href="">-->
+<!--									<i class="fa fa-pinterest"></i>-->
+<!--									<span>Pinterest</span>-->
+<!--								</a>-->
+<!--										</li>-->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Email or Username">
+										<input type="text" placeholder="Password">
+										<label>
+											<input type="checkbox" name="vehicle" value="Bike">
+											Remember me
+											<span>Forgot your password</span>
+										</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+						<div id="signup" class="tab-pane fade">
+							<div class="login-left">
+								<div class="login-title">
+									<h3>Sign in socially</h3>
+								</div>
+								<div class="login-social">
+									<ul>
+										<li class="facebook">
+											<a href="">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+										</li>
+										<li class="twitter">
+											<a href="">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+										</li>
+										<li class="pinterest">
+											<a href="">
+									<i class="fa fa-pinterest"></i>
+									<span>Pinterest</span>
+								</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Username">
+										<input type="text" placeholder="Email">
+										<input type="text" placeholder="Password">
+										<input type="text" placeholder="Confirm Password">
+										<div class="select_wrapper">
+											<select>
+									<option value="Country">Country</option>
+									<option value="England">England</option>
+									<option value="America">America</option>
+									<option value="India">India</option>
+									<option value="Australia">Australia</option>
+									<option value="Canada">Canada</option>
+									<option value="Bangladesh">Bangladesh</option>
+								</select>
+										</div>
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								 I'm over 18 and I agree<span> Terms & Conditions!</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Sign in -->
+
+		<!-- sign up -->
+		<div class="modal fade" id="signUpModal">
+			<div class="modal-dialog">
+				<div class="modal-body">
+					<ul class="nav">
+						<li class="active">
+							<i class="fa fa-user"></i>
+							<a data-toggle="tab" href="#login2">Login</a>
+						</li>
+						<li>
+							<i class="fa fa-sign-in"></i>
+							<a data-toggle="tab" href="#signup2">SignUp</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="login2" class="tab-pane fade in active">
+<!--							<div class="login-left">-->
+<!--								<div class="login-title">-->
+<!--									<h3>Sign in socially</h3>-->
+<!--								</div>-->
+<!--								<div class="login-social">-->
+<!--									<ul>-->
+<!--										<li class="facebook">-->
+<!--											<a href="">-->
+<!--									<i class="fa fa-facebook"></i>-->
+<!--									<span>Facebook</span>-->
+<!--								</a>-->
+<!--										</li>-->
+<!--										<li class="twitter">-->
+<!--											<a href="">-->
+<!--									<i class="fa fa-twitter"></i>-->
+<!--									<span>Twitter</span>-->
+<!--								</a>-->
+<!--										</li>-->
+<!--										<li class="pinterest">-->
+<!--											<a href="">-->
+<!--									<i class="fa fa-pinterest"></i>-->
+<!--									<span>Pinterest</span>-->
+<!--								</a>-->
+<!--										</li>-->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Email or Username">
+										<input type="text" placeholder="Password">
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								Remember me
+								<span>Forgot your password</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+						<div id="signup2" class="tab-pane fade">
+							<div class="login-left">
+								<div class="login-title">
+									<h3>Sign in socially</h3>
+								</div>
+								<div class="login-social">
+									<ul>
+										<li class="facebook">
+											<a href="">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+										</li>
+										<li class="twitter">
+											<a href="">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+										</li>
+										<li class="pinterest">
+											<a href="">
+									<i class="fa fa-pinterest"></i>
+									<span>Pinterest</span>
+								</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Username">
+										<input type="text" placeholder="Email">
+										<input type="text" placeholder="Password">
+										<input type="text" placeholder="Confirm Password">
+										<div class="select_wrapper">
+											<select>
+									<option value="Country">Country</option>
+									<option value="England">England</option>
+									<option value="America">America</option>
+									<option value="India">India</option>
+									<option value="Australia">Australia</option>
+									<option value="Canada">Canada</option>
+									<option value="Bangladesh">Bangladesh</option>
+								</select>
+										</div>
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								 I'm over 18 and I agree<span> Terms & Conditions!</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!--=======================-->
 		<!--=        Footer       =-->
