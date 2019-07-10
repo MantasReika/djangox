@@ -1,0 +1,567 @@
+{% extends 'index_base.html' %}
+{% load staticfiles %}
+{% load specifyLangEn %}
+{% block title %}DOTA2 and CS:GO tournaments{% endblock %}
+
+{% block content %}
+		<h1>{{ message }}</h1>
+		<!--===========================-->
+		<!--=        Torurmant        =-->
+		<!--===========================-->
+		<section id="tournaments">
+			<div class="container">
+
+				<div class="swiper-container tim-logo-carousel" data-swiper-config='{"loop": true, "speed": 700, "spaceBetween": 30, "autoplay": 3000, "pagination":"#brand-swiper-pagination", "slidesPerView": 3, "grabCursor": true, "paginationClickable": true, "breakpoints": { "991": { "slidesPerView": 2 }, "767": { "slidesPerView": 1 }}}'>
+					<div class="swiper-wrapper">
+						{% for hub in hubs_list %}
+						<div class="swiper-slide">
+							<div class="trurnament-inner wow fadeInRight" data-wow-duration="1000ms">
+								<div class="torurmant clearfix">
+									<div class="tgame game-item">
+										<img src="media/game/c1.jpg" alt="Game">
+										<h4><a href="#">{{ hub.name }}</a></h4>
+                                        <h4><a href="#">{{ hub.id }}</a></h4>
+									</div>
+								</div>
+
+								<div class="tournaments-details clearfix">
+									<div class="tournamant-date">
+										<div class="date">
+											<h4>December<br> 10</h4>
+										</div>
+
+										<div class="date">
+											<h4>Days<br> 20</h4>
+										</div>
+
+										<div class="date">
+											<h4>Hour<br> 7</h4>
+										</div>
+									</div>
+
+									<div class="view-details clearfix">
+										<div class="details">
+											<ul class="review">
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</ul>
+
+											<a href="{{ tournament.faceit_url|specifyLangEn}}" class="tim-btn"> See rules </a>
+										</div>
+
+										<div class="details float-right">
+											<ul class="review">
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</ul>
+
+											<a href="{{ tournament.faceit_url|specifyLangEn}}" class="tim-btn"> Join tournament </a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor%}
+					</div>
+				</div>
+			</div>
+			<!-- /.container -->
+		</section>
+		<!-- /#tournaments -->
+
+
+		<section id="beyond">
+			<div class="container">
+				<div class="section-title">
+					<h3 class="sub-title wow fadeInUp" data-wow-duration="1000ms">Welcome to Dota2 and CS:GO tournament system</h3>
+					<h2 class="title wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.2s">See What Lies <span>Beyond</span></h2>
+					<span class="delemitter  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.4s" data-bg-image="media/banner/s1.png"></span>
+
+					<div class="section-content  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.5s">
+						<p>
+							Gaming era has began. However, not every player is able to make a living from it. The ability to play at tournaments is often expensive, requires more time, and a team. Now you get a chance to show what you are made of, and solo tournament gaming is a thing now! So join us.
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="beyond-content">
+							<div class="section-mini-title  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.7s">
+								<h2 class="title">Overview</h2>
+								<h3 class="sub-title">Under the hood</h3>
+							</div>
+
+							<p class="content  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.8s">
+								Various different versions of tournaments exist by length: weekly, monthly. A player has to pay-in to the selected tournament. At the beggining of a new week/month, a tournament will be held. The pay-in money of all players will be stored safely, while the tournament ends. After that, the top 5 will receive their reward!
+							</p>
+
+							<p class="content content-two  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="1s">
+								As a pay-in currency we all be using cryptocurrency. Who trusts banks these days? Also no taxes will be needed to pay for you. Times are changing, and now we are becoming free.
+							</p>
+
+						</div>
+						<!-- /.beyond-content -->
+					</div>
+					<!-- /.col-md-6 -->
+
+				<div class="col-md-6">
+						<div class="faq">
+							<div class="section-title">
+								<h2 class="title">POPULAR <span>QUESTIONS</span></h2>
+							</div>
+
+
+
+							<div id="accordion">
+								<div class="card">
+									<div class="card-header" id="headingOne">
+										<h5 class="mb-0">
+											<button class="btn btn-link active" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										How to pay-in to the tournament?
+									</button>
+										</h5>
+									</div>
+
+									<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+										<div class="card-body">
+											Open a tournament of your choice, and press join tournament. Then a payment gateway will pop-up and you will be guided to the payment.
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="headingTwo">
+										<h5 class="mb-0">
+											<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Clean & Professional Design
+									</button>
+										</h5>
+									</div>
+									<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+										<div class="card-body">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="headingThree">
+										<h5 class="mb-0">
+											<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										How can we trust your website?
+									</button>
+										</h5>
+									</div>
+									<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+										<div class="card-body">
+											That is your choice to make. However, all we can say that we are obliged to develop this project and keep your funds as safe as possible. With a guarantee that winners will receive their rewards. Long-term investment over short-term quick money! Choose wisely!
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="headingFour">
+										<h5 class="mb-0">
+											<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										Comfortable All Browser
+									</button>
+										</h5>
+									</div>
+									<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+										<div class="card-body">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.game-link -->
+					</div>
+					<!-- /.col-md-6 -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container -->
+		</section>
+		<!-- /#beyond -->
+
+<!--==============++=======-->
+		<!--=        Behind        =-->
+		<!--================++=====-->
+		<section class="section-padding" id="behind" data-parallax="image" data-bg-image="static/media/blog/57.jpg">
+			<div class="container">
+				<div class="section-title">
+
+					<h2 class="title wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.2s">Solo<span> Tournaments</span></h2>
+					<span class="delemitter wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s" data-bg-image="static/media/banner/s1.png"></span>
+
+					<div class="section-content wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.4s">
+						<p>
+							1x1 tournaments are way more fun. Forget worrying about your teammates mistakes! Now everything is in your hands!! 
+						</p>
+					</div>
+				</div>
+				<div class="behind-items wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.7s">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__one skew__left">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/1.png" alt="icon"> -->
+											<i class="flaticon-gamepad"></i>
+										</div>
+
+										<h3 class="title">Incredible Atmosphere</h3>
+
+										<p class="content">
+											Competition against other players will drive you! The master of the game never shows rage and feels in control of his emotions. Balance keeps you in the top of the ranking table!
+											Also remember that in order to become the greatest, you have to learn how to lose.
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__two skew__left">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/2.png" alt="icon"> -->
+											<i class="flaticon-fire"></i>
+										</div>
+
+										<h3 class="title">Catchy Battles</h3>
+
+										<p class="content">
+											The sweet dopamine rushing in your brain... Warning, you may feel as playing 24/7! But hey, good play pays off! However, a short break helps a lot. Keep in mind: going outside and oxidizing the brain improves your capability of playing way better! 
+										</p> 
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__two skew__right">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/3.png" alt="icon"> -->
+											<i class="flaticon-trophy"></i>
+										</div>
+
+										<h3 class="title">Reward system</h3>
+
+										<p class="content">
+											Top players of the month/week will be able to multiply their pay-in money approximately 5-10 times! Depending on player amount. The more players join, the more money you are able to win. Inviting others is a priority.
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="row">
+								<div class="item bg__one skew__right">
+									<div class="items-content">
+										<div class="icone-wrap">
+											<!-- <img src="media/behind/4.png" alt="icon"> -->
+											<i class="flaticon-man-with-bag-and-walking-stick"></i>
+										</div>
+
+										<h3 class="title">Unlimited Possibilities</h3>
+
+										<p class="content">
+											While we are working towards implementing smart contracts and developing our own tournament platform, this project has unlimited possibilities! Now we are dependent on an amazing platform called FACEIT. However, the rewarding system stays in this page!
+										</p>
+									</div>
+									<!-- /.items-content -->
+								</div>
+								<!-- /.item -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-md-6 -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.behind-items -->
+			</div>
+			<!-- /.container -->
+		</section>
+		<!-- /#behind -->
+
+
+
+		<!--===============================-->
+		<!--=        Modal        =-->
+		<!--===============================-->
+		<!-- Sign in -->
+		<div class="modal fade" id="signInModal">
+			<div class="modal-dialog">
+				<div class="modal-body">
+					<ul class="nav">
+						<li class="active">
+							<i class="fa fa-user"></i>
+							<a data-toggle="tab" href="#login">Login</a>
+						</li>
+						<li>
+							<i class="fa fa-sign-in"></i>
+							<a data-toggle="tab" href="#signup">SignUp</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="login" class="tab-pane fade in active">
+							<div class="login-left">
+								<div class="login-title">
+									<h3>Sign in socially</h3>
+								</div>
+								<div class="login-social">
+									<ul>
+										<li class="facebook">
+											<a href="">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+										</li>
+										<li class="twitter">
+											<a href="">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+										</li>
+										<li class="pinterest">
+											<a href="">
+									<i class="fa fa-pinterest"></i>
+									<span>Pinterest</span>
+								</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Email or Username">
+										<input type="text" placeholder="Password">
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								Remember me
+								<span>Forgot your password</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+						<div id="signup" class="tab-pane fade">
+							<div class="login-left">
+								<div class="login-title">
+									<h3>Sign in socially</h3>
+								</div>
+								<div class="login-social">
+									<ul>
+										<li class="facebook">
+											<a href="">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+										</li>
+										<li class="twitter">
+											<a href="">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+										</li>
+										<li class="pinterest">
+											<a href="">
+									<i class="fa fa-pinterest"></i>
+									<span>Pinterest</span>
+								</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Username">
+										<input type="text" placeholder="Email">
+										<input type="text" placeholder="Password">
+										<input type="text" placeholder="Confirm Password">
+										<div class="select_wrapper">
+											<select>
+									<option value="Country">Country</option>
+									<option value="England">England</option>
+									<option value="America">America</option>
+									<option value="India">India</option>
+									<option value="Australia">Australia</option>
+									<option value="Canada">Canada</option>
+									<option value="Bangladesh">Bangladesh</option>
+								</select>
+										</div>
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								 I'm over 18 and I agree<span> Terms & Conditions!</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Sign in -->
+
+		<!-- sign up -->
+		<div class="modal fade" id="signUpModal">
+			<div class="modal-dialog">
+				<div class="modal-body">
+					<ul class="nav">
+						<li class="active">
+							<i class="fa fa-user"></i>
+							<a data-toggle="tab" href="#login2">Login</a>
+						</li>
+						<li>
+							<i class="fa fa-sign-in"></i>
+							<a data-toggle="tab" href="#signup2">SignUp</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="login2" class="tab-pane fade in active">
+							<div class="login-left">
+								<div class="login-title">
+									<h3>Sign in socially</h3>
+								</div>
+								<div class="login-social">
+									<ul>
+										<li class="facebook">
+											<a href="">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+										</li>
+										<li class="twitter">
+											<a href="">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+										</li>
+										<li class="pinterest">
+											<a href="">
+									<i class="fa fa-pinterest"></i>
+									<span>Pinterest</span>
+								</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Email or Username">
+										<input type="text" placeholder="Password">
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								Remember me
+								<span>Forgot your password</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+						<div id="signup2" class="tab-pane fade">
+							<div class="login-left">
+								<div class="login-title">
+									<h3>Sign in socially</h3>
+								</div>
+								<div class="login-social">
+									<ul>
+										<li class="facebook">
+											<a href="">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+										</li>
+										<li class="twitter">
+											<a href="">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+										</li>
+										<li class="pinterest">
+											<a href="">
+									<i class="fa fa-pinterest"></i>
+									<span>Pinterest</span>
+								</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="login-right">
+								<div class="login-title">
+									<h3>Sign in through GIO</h3>
+								</div>
+								<div class="login_main_form">
+									<form action="#">
+										<input type="text" placeholder="Username">
+										<input type="text" placeholder="Email">
+										<input type="text" placeholder="Password">
+										<input type="text" placeholder="Confirm Password">
+										<div class="select_wrapper">
+											<select>
+									<option value="Country">Country</option>
+									<option value="England">England</option>
+									<option value="America">America</option>
+									<option value="India">India</option>
+									<option value="Australia">Australia</option>
+									<option value="Canada">Canada</option>
+									<option value="Bangladesh">Bangladesh</option>
+								</select>
+										</div>
+										<label>
+								<input type="checkbox" name="vehicle" value="Bike">
+								 I'm over 18 and I agree<span> Terms & Conditions!</span>
+							</label>
+										<input type="submit" value="sign in">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock content %}
