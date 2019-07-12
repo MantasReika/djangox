@@ -2,7 +2,7 @@ import logging
 
 from django.views.generic import TemplateView
 from pages.faceit.HubApi import HubApi
-from .models import Hub, HubScore, Player, Invites
+from .models import Hub, HubScore, Player, Invites, Payment
 
 from datetime import datetime, timedelta
 
@@ -19,14 +19,28 @@ class IndexPageView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['hubs_list'] = self.getHubsData(Hub.UPCOMING)
+        hubData = self.getHubsData(Hub.UPCOMING)
+        context['hubs_list'] = hubData 
         # context['hubs_list'] = self.updateHubsData()
+        context['hub_pool_totals'] = self.calculateHubsMoneyPool(hubData)
         return context
 
+    def calculateHubsMoneyPool(self, hubData):
+        for hub in hubData:
+            hubPayments = hub.payment_set.all()
+            amountTotal = sum(paym.amount for paym in hubPayments)
+            
+            logger.debug("hub : {}, amountTotal: {}".format(hub.id, amountTotal))
+        #     # for each payment where paymenent.hub_id = hub.hub_id
+        return {'hub_24' : 1}
+
     def getHubsData(self, hubStatus):
-        self.updateHubsData(hubStatus)
+        updateFromOnline = False
+        if updateFromOnline: 
+            self.updateHubsData(hubStatus)
 
         hubs = Hub.objects.all().filter(status=hubStatus)
+        logger.debug("hubs len: {}".format(len(hubs)))
         return hubs
 
     def updateHubsData(self, hubStatus):

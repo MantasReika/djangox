@@ -12,6 +12,7 @@ class Hub(models.Model):
         (ONGOING, 'Ongoing'),
         (FINISHED, 'Finished')
     )
+    currency_BTC = "BTC"
 
     class Meta:
         indexes = [models.Index(fields=['faceit_hub_id'])]
@@ -32,6 +33,11 @@ class Hub(models.Model):
     status = models.CharField(max_length=128,
                               choices=HUB_STA_CHOICES,
                               default=UPCOMING)
+    money_pool = models.DecimalField(decimal_places=10, 
+                                max_digits=9999,
+                                default=0)
+    currency = models.CharField(max_length=128,
+                                default=currency_BTC)
     start_dttm = models.DateTimeField(blank = True,
                                       null=True)
     finish_dttm = models.DateTimeField(blank = True,
@@ -73,3 +79,16 @@ class Invites(models.Model):
                                         null=True)
     created_dttm = models.DateTimeField(auto_now_add=True)
     modified_dttm = models.DateTimeField(auto_now=True)
+
+class Payment(models.Model):
+    currency_BTC = "BTC"
+    CURRENCY_CHOICES = ((currency_BTC, 'BTC'))
+
+    player = models.ForeignKey(Player, 
+                                on_delete=models.CASCADE)
+    hub = models.ForeignKey(Hub, 
+                                on_delete=models.CASCADE)
+    amount = models.DecimalField(decimal_places=5, 
+                                max_digits=999)
+    currency = models.CharField(max_length=128,
+                                default=currency_BTC)

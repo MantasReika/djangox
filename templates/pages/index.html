@@ -14,59 +14,32 @@
 				<div class="swiper-container tim-logo-carousel" data-swiper-config='{"loop": true, "speed": 700, "spaceBetween": 30, "autoplay": 3000, "pagination":"#brand-swiper-pagination", "slidesPerView": 3, "grabCursor": true, "paginationClickable": true, "breakpoints": { "991": { "slidesPerView": 2 }, "767": { "slidesPerView": 1 }}}'>
 					<div class="swiper-wrapper">
 						{% for hub in hubs_list %}
+						{% with hubId="hub_"|add:hub.id %}
 						<div class="swiper-slide">
 							<div class="trurnament-inner wow fadeInRight" data-wow-duration="1000ms">
 								<div class="torurmant clearfix">
 									<div class="tgame game-item">
-										<img src="media/game/c1.jpg" alt="Game">
-										<h4><a href="#">{{ hub.name }}</a></h4>
-                                        <h4><a href="#">{{ hub.id }}</a></h4>
+										<img src="{% static 'media/game/logo_'|add:hub.game_id|add:'.jpg' %}" alt="Game">
+										<h4><a href="#">{{ hub.name }} ID: {{ hub.id }} </a></h4>
+                                        <h4><a href="#">{{ hub.money_pool|floatformat }} {{ hub.currency }}</a></h4>
 									</div>
 								</div>
 
 								<div class="tournaments-details clearfix">
-									<div class="tournamant-date">
-										<div class="date">
-											<h4>December<br> 10</h4>
-										</div>
-
-										<div class="date">
-											<h4>Days<br> 20</h4>
-										</div>
-
-										<div class="date">
-											<h4>Hour<br> 7</h4>
-										</div>
-									</div>
-
 									<div class="view-details clearfix">
 										<div class="details">
-											<ul class="review">
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-											</ul>
 
 											<a href="{{ tournament.faceit_url|specifyLangEn}}" class="tim-btn"> See more </a>
 										</div>
 
 										<div class="details float-right">
-											<ul class="review">
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-											</ul>
-
-											<a class="meta" href="#"><i class="fa fa-comments"></i> Comments</a>
+											<a href="/{{ hub.hub_id }}" class="tim-btn"> Join ! </a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+					{% endwith %}
 					{% endfor%}
 					</div>
 				</div>
