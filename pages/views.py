@@ -20,19 +20,21 @@ class IndexPageView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         hubData = self.getHubsData(Hub.UPCOMING)
-        context['hubs_list'] = hubData 
+        hubData = self.calculateHubsMoneyPool(hubData)
+
+        context['hubs_list'] = hubData
+        logger.debug(context['hubs_list'][0])
         # context['hubs_list'] = self.updateHubsData()
-        context['hub_pool_totals'] = self.calculateHubsMoneyPool(hubData)
+        # context['hub_pool_totals'] =
         return context
 
     def calculateHubsMoneyPool(self, hubData):
         for hub in hubData:
             hubPayments = hub.payment_set.all()
-            amountTotal = sum(paym.amount for paym in hubPayments)
+            hub.money_total = sum(paym.amount for paym in hubPayments)
             
-            logger.debug("hub : {}, amountTotal: {}".format(hub.id, amountTotal))
-        #     # for each payment where paymenent.hub_id = hub.hub_id
-        return {'hub_24' : 1}
+            logger.debug("hub : {}, amountTotal: {}".format(hub.id, hub.money_total))
+        return hubData
 
     def getHubsData(self, hubStatus):
         updateFromOnline = False

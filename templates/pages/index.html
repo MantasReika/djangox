@@ -20,8 +20,8 @@
 								<div class="torurmant clearfix">
 									<div class="tgame game-item">
 										<img src="{% static 'media/game/logo_'|add:hub.game_id|add:'.jpg' %}" alt="Game">
-										<h4><a href="#">{{ hub.name }} ID: {{ hub.id }} </a></h4>
-                                        <h4><a href="#">{{ hub.money_pool|floatformat }} {{ hub.currency }}</a></h4>
+										<h4><a href="#">{{ hub.name }} </a></h4>
+                                        <h4><a href="#">{{ hub.money_total|floatformat }} {{ hub.currency }}</a></h4>
 									</div>
 								</div>
 
